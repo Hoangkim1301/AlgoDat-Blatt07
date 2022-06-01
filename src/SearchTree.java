@@ -81,16 +81,16 @@ public class SearchTree <T extends Comparable<T> > {
     //Aufgabe 1 b) search
     public void search(T k){
         Node<T> y = root;
+        if(y.key.compareTo(k)==0){
+            System.out.println("The value: "+ k +" is in the tree");
+            return;
+        }
         while(y!=null && y.key.compareTo(k)!=0){
             if(k.compareTo(y.key)<0){
                 y=y.left;
             }else if(k.compareTo(y.key)>0){
                 y=y.right;
             }
-        }
-        if(y.key.compareTo(k)==0){
-            System.out.println("The value: "+ k +" is in the tree");
-            return;
         }
         System.out.println("The value: "+ k +" is not in the tree");
         return;
@@ -162,8 +162,8 @@ public class SearchTree <T extends Comparable<T> > {
     public static void main(String[] args) {
         SearchTree<Integer> test = new SearchTree<>();
         test.tree_insert(2);
-        test.tree_insert(3);
-        test.tree_insert(4);
+        test.tree_insert(6);
+        test.tree_insert(7);
         test.tree_insert(2);
         test.tree_insert(5);
         test.tree_insert(1);
