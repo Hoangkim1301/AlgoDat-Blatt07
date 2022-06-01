@@ -148,6 +148,17 @@ public class SearchTree <T extends Comparable<T> > {
         }
     }
 
+    public void print2(){
+        preorder_tree_walk(root);
+    }
+    public void preorder_tree_walk(Node root){
+        if(root != null){
+            System.out.print(root.key + " ");
+            preorder_tree_walk(root.left);
+            preorder_tree_walk(root.right);
+        }
+    }
+
     public static void main(String[] args) {
         SearchTree<Integer> test = new SearchTree<>();
         test.tree_insert(2);
@@ -157,7 +168,18 @@ public class SearchTree <T extends Comparable<T> > {
         test.tree_insert(5);
         test.tree_insert(1);
         test.tree_insert(6);
-
+        //test.print();
+        //test.delete(2);
         test.print();
+        System.out.println();
+        test.search(3);
+        test.min();
+        test.max();
+
+        SearchTree<Integer> arr_test = new SearchTree<>();
+        Integer[] arr = new Integer[]{1, 2, 3, 4, 5, 6, 7};
+        System.out.print("The sorted array in BST is: ");
+        arr_test.arrToBST(arr,0,arr.length-1);
+        arr_test.print2();
     }
 }
