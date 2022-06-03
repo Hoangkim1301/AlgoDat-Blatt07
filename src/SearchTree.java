@@ -40,7 +40,11 @@ public class SearchTree <T extends Comparable<T> > {
         return;
     }
 
-    public Node tree_delete(Node<T> root,T z) {
+    public void delete(T z){
+        root = tree_delete(root,z);
+    }
+
+    public Node<T> tree_delete(Node<T> root,T z) {
         Node<T> temp = new Node<>(z);
         Node<T> y = root;
         //the BST is empty, no value
@@ -169,7 +173,7 @@ public class SearchTree <T extends Comparable<T> > {
         test.tree_insert(1);
         test.tree_insert(6);
         //test.print();
-        //test.delete(2);
+        test.delete(2);
         test.print();
         System.out.println();
         test.search(3);
